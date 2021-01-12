@@ -18,35 +18,6 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 /**
  * <a href="https://github.com/DV8FromTheWorld/JDA">JDA</a> Plugin for Parsing
  * Commands using <a href="https://github.com/Mojang/brigadier">Brigardier</a>.
- * 
- * <h2>Ping Pong Example</h2>
- * 
- * <pre>
- * <code>
- * DiscordBrigadier discordBrigadier = new DiscordBrigadier();
- * 
- * discordBrigadier.register(
- *  DiscordBrigadier
- *      .literal("ping")
- *      .executes(context -> { 
- *          context
- *              .getChannel()
- *              .sendMessage("pong")
- *              .queue(); 
- * 
- *          return 1; 
- *      })
- * );
- * 
- * try {
- *  JDA jda = JDABuilder.createDefault("Discord_Bot_Token_Here").build();
- * 
- *  jda.addEventListener(discordBrigadier);
- * 
- *  jda.awaitReady();
- * } catch(Exception e) {}
- * </code>
- * </pre>
  */
 public class DiscordBrigadier extends ListenerAdapter {
     /**

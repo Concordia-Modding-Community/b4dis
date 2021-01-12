@@ -1,7 +1,5 @@
 package ca.concordia.b4dis;
 
-import java.util.Optional;
-
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.entities.User;
@@ -27,7 +25,7 @@ public class CommandSourceDiscord {
      */
     public boolean hasRole(String roleName) {
         try {
-            return getChannel().get().getGuild().getMember(getUser()).getRoles().stream()
+            return getTextChannel().getGuild().getMember(getUser()).getRoles().stream()
                     .anyMatch(role -> role.getName().equals(roleName));
         } catch (Exception e) {
             return false;
@@ -39,12 +37,8 @@ public class CommandSourceDiscord {
      * 
      * @return Text channel or empty if channel is not a text channel.
      */
-    public Optional<TextChannel> getChannel() {
-        try {
-            return Optional.of((TextChannel) message.getChannel());
-        } catch (Exception e) {
-            return Optional.empty();
-        }
+    public TextChannel getTextChannel() {
+        return message.getTextChannel();
     }
 
     /**
