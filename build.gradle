@@ -4,6 +4,8 @@ group = 'ca.concordia.b4dis'
 
 version = '1.0'
 
+sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
+
 repositories {
     maven {
         url "https://libraries.minecraft.net"
